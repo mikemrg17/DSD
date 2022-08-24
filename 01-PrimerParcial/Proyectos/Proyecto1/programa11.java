@@ -1,40 +1,29 @@
 public class programa11 {
     public static void main(String[] args) {
         
-        int a, b, c;
-        int sum;
-        int sumAux;
-        String digits;
+        int number = 0, sumDigits = 0, digit = 0;
+        String sNumber = "";
+        String sDigits = "";
+        String[] arrayDigits;
 
-        for(sum = 0; sum <= 5000; sum++){
-            String[] sSum = (String.valueOf(sum)).split();
-            System.out.printf(sSum + " = ");
-            for(int i = 0; i < sSum.length; i++){
-                sumAux += (int)Math.pow(Integer.parseInt(sSum[i]), 3);
-                digits += sSum[i] + "^3 + ";
+        for(number = 0; number <= 5000; number++){
+            sNumber = String.valueOf(number);
+            arrayDigits = sNumber.split("");
+            for(int i = 0; i < arrayDigits.length; i++){
+                digit = Integer.parseInt(arrayDigits[i]);
+                sumDigits += (int)Math.pow(digit, 3);
+                sDigits += arrayDigits[i] + "^3";
+                if(i != arrayDigits.length - 1)
+                    sDigits += " + ";
             }
-            if(sumAux == sum){
-                System.out.printf(digits);
-            }else{
-                System.out.printf("no se encontró");
+            if(sumDigits == number){
+                System.out.printf(number + " = ");
+                System.out.printf(sDigits);
+                System.out.printf("\n");
             }
 
-            digits = "";
-            sumAux = 0;
-
-            /*if(sum < 10){
-                if(sum == Math.pow(Integer.parseInt(sSum[1]),3)){
-                    System.out.println(sSum + " = " + sSum[1] + "^3");
-                }
-            }else if(sum >= 10 && sum < 100){
-                if(sum == Math.pow(sSum[1],3) + Math.pow(sSum[2],3)){
-                    System.out.println(sSum + " = " + sSum[1] + "^3 + " + sSum[2] + "^3");
-                }
-            }else if(sum >= 100 && sum < 1000){
-                
-            }else{
-
-            }*/
+            sDigits = "";
+            sumDigits = 0;
         }
     }
 }
