@@ -1,6 +1,17 @@
+import java.util.Scanner;
+
 public class programa4 {
 	public static void main(String[] args) {
-		int a = 2, b = 10, c = 3;
+		Scanner	input = new Scanner(System.in);
+
+		int a, b, c;
+		System.out.println("Inserte a: ");
+		a = input.nextInt();
+		System.out.println("Inserte b: ");
+		b = input.nextInt();
+		System.out.println("Inserte c: ");
+		c = input.nextInt();
+
 		double x1, x2;
 
 		if((4*a*c) > Math.pow(b,2)){

@@ -1,10 +1,20 @@
+import java.util.Scanner;
+
 public class programa2 {
 	public static void main(String[] args) {
-		//Lados
-		int a = 5, b = 2, altura = 10;
-		float area_trapecio;
+		Scanner input = new Scanner(System.in);
+		
+		//Sides
+		int a, b, height;
+		System.out.println("Inserte a: ");
+		a = input.nextInt();
+		System.out.println("Inserte b: ");
+		b = input.nextInt();
+		System.out.println("Inserte altura: ");
+		height = input.nextInt();
+		float trapezeArea;
 
-		area_trapecio = ((a + b) * altura)/2;
-		System.out.println("Área del trapecio; " + area_trapecio);
+		trapezeArea = ((float)(a + b) / 2) * height;
+		System.out.println("Área del trapecio: " + trapezeArea);
 	}
 }

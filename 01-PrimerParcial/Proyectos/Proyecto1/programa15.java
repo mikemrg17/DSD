@@ -15,10 +15,11 @@ public class programa15 {
                 System.out.println("Tu número es menor");
             else
                 System.out.println("Tu número es mayor:");
-        }while(guess != random_num);
+        }while(guess != random_num && guess != 0);
         
         clearScreen();
-        System.out.println("ADIVINASTE!!!");
+        if(guess != 0)
+            System.out.println("ADIVINASTE!!!");
     }
 
     public static void clearScreen() {  

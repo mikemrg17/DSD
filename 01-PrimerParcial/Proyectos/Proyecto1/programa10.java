@@ -8,10 +8,12 @@ public class programa10 {
         int number = input.nextInt();
 
         int factorial = 0;
-        System.out.printf(number + "X");
+        System.out.printf(number + " x ");
         for(int i = number - 1; i > 0; i--){
             number *= i;
-            System.out.printf(i + "X");
+            System.out.printf(i + " ");
+            if(i != 1)
+                System.out.printf("x ");
         }
         System.out.printf("\n");
         factorial = number;

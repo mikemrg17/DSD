@@ -1,15 +1,24 @@
+import java.util.Scanner;
+
 public class programa1 {
 	public static void main(String[] args) {
-		int radio = 5; //Radio del círculo
-		int altura = 10; //Altura
+		Scanner input = new Scanner(System.in);
 
-		double area_circulo = Math.PI * Math.pow(radio, 2);
+		System.out.println("Inserte el radio del círculo: ");
+		int radius = input.nextInt(); //Circle radius
+		System.out.println("Inserte la altura: ");
+		int height = input.nextInt(); //Height
+
+		double circleArea = Math.PI * Math.pow(radius, 2);
+
+		System.out.println("Radio: " + radius);
+		System.out.println("Altura: " + height);
 	
-		double volumen_cono = (area_circulo * altura)/3;
-		System.out.println("Volúmen del cono: " + volumen_cono);
-		double volumen_cilindro = area_circulo * altura;
-		System.out.println("Volúmen del cilindro: " + volumen_cilindro);
-		double diferencia_volumenes = volumen_cilindro - volumen_cono;
-		System.out.println("Diferencia de volúmenes: " + diferencia_volumenes);
+		double coneVolume = (circleArea * height)/3;
+		System.out.format("El volumen del cono es: %.4f\n", coneVolume);
+		double cylinderVolume = circleArea * height;
+		System.out.format("El volumen del cilindro es: %.4f\n", cylinderVolume);
+		double volumeDifference = cylinderVolume - coneVolume;
+		System.out.format("Diferencia de volúmenes %.4f\n", volumeDifference);
 	}
 }

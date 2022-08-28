@@ -107,6 +107,6 @@ public class programa9 {
             }
         }
 
-        System.out.println("Roman year: " + romanYear);
+        System.out.println("Año romano: " + romanYear);
     }
 }

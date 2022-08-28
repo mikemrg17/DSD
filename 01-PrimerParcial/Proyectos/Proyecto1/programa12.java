@@ -1,7 +1,12 @@
+import java.util.Scanner;
+
 public class programa12 {
     public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
         double balance, utility;
-        balance = 0;
+        System.out.println("Indique la cantidad en dólares con la que comienza la inversión");
+        balance = input.nextInt();
 
         for(int i = 1; i <= 20; i++){
             if(i <= 10)
@@ -11,6 +16,6 @@ public class programa12 {
             balance += utility;
         }
 
-        System.out.format("%.2f\n", balance);
+        System.out.format("Dinero después de 20 años: %.2f\n", balance);
     }
 }
