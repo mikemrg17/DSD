@@ -1,1 +1,0 @@
-EDAD: 21, ALTURA: 175

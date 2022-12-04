@@ -1,0 +1,767 @@
+******** EJERCICIO 1 ********
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Inserte el radio del círculo: ");
+	int radius = input.nextInt(); //Circle radius
+	System.out.println("Inserte la altura: ");
+	int height = input.nextInt(); //Height
+
+	double circleArea = Math.PI * Math.pow(radius, 2);
+
+	System.out.println("Radio: " + radius);
+	System.out.println("Altura: " + height);
+	
+	double coneVolume = (circleArea * height)/3;
+	System.out.format("El volumen del cono es: %.4f\n", coneVolume);
+	double cylinderVolume = circleArea * height;
+	System.out.format("El volumen del cilindro es: %.4f\n", cylinderVolume);
+	double volumeDifference = cylinderVolume - coneVolume;
+	System.out.format("Diferencia de volúmenes %.4f\n", volumeDifference);
+
+******** EJERCICIO 2 ********
+
+    Scanner input = new Scanner(System.in);
+
+    int a, b, height;
+	System.out.println("Inserte a: ");
+	a = input.nextInt();
+	System.out.println("Inserte b: ");
+	b = input.nextInt();
+	System.out.println("Inserte altura: ");
+	height = input.nextInt();
+	float trapezeArea;
+
+	trapezeArea = ((float)(a + b) / 2) * height;
+	System.out.println("Área del trapecio: " + trapezeArea);    
+
+******** EJERCICIO 3 ********
+
+    Scanner input = new Scanner(System.in);
+
+	//SECONDS
+	System.out.println("Introduce los segundos:");
+	int seconds = input.nextInt();
+	System.out.println(seconds + " segundos");
+
+	//MINUTES, SECONDS
+	int minutes = seconds / 60;
+	seconds = seconds % 60;
+	System.out.println(minutes + " minutos, " + seconds +  " segundos");
+
+	//HOURS, MINUTES, SECONDS
+	int hours = minutes / 60;
+	minutes = minutes % 60;
+	seconds = seconds % 60;
+	System.out.println(hours + " horas, " + minutes +  " minutos, "  + seconds + " segundos");
+
+******** EJERCICIO 4 ********
+
+    Scanner	input = new Scanner(System.in);
+
+	int a, b, c;
+	System.out.println("Inserte a: ");
+	a = input.nextInt();
+	System.out.println("Inserte b: ");
+	b = input.nextInt();
+	System.out.println("Inserte c: ");
+	c = input.nextInt();
+
+	double x1, x2;
+
+	if((4*a*c) > Math.pow(b,2)){
+		System.out.println("No hay soluciones reales");
+	}else{
+		x1 = (0 - b - Math.sqrt(Math.pow(b,2) - 4*a*c)) / (2 * a);
+		x2 = (0 - b + Math.sqrt(Math.pow(b,2) - 4*a*c)) / (2 * a);
+		System.out.println("X1 = " + x1);
+		System.out.println("X2 = " + x2);
+	}
+
+******** EJERCICIO 5 ********
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Inserta tu calificación 0 - 100:");
+    int grade = input.nextInt();
+
+    int opt;
+    System.out.println("Elige una opción:\n"
+        + "1. (A, B, C, F)\n"
+        + "2. (Muy Bien, Bien, Suficiente, No suficiente)"
+    );
+
+    opt = input.nextInt();
+
+    switch(opt) {
+        case 1:
+            System.out.println("Formato (A, B, C, F)");
+            if(grade >= 90 && grade <= 100) {
+                System.out.println("Calificación: A");
+            }else if(grade >= 80 && grade <= 89){
+                System.out.println("Calificación: B");
+            }else if(grade >= 60 && grade <= 79){
+                System.out.println("Calificación: C");
+            }else{
+                System.out.println("Calificación: F");
+            }
+            break;
+            
+        case 2:
+            System.out.println("Formato (Muy Bien, Bien, Suficiente, No suficiente)");
+            if(grade >= 90 && grade <= 100) {
+                System.out.println("Calificación: Muy Bien");
+            }else if(grade >= 80 && grade <= 89){
+                System.out.println("Calificación: Bien");
+            }else if(grade >= 60 && grade <= 79){
+                System.out.println("Calificación: Suficiente");
+            }else{
+                System.out.println("Calificación: No Suficiente");
+            }
+            break;
+            
+        default: break;
+        }
+
+******** EJERCICIO 6 ********
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Insertar el valor de compra:");
+    double purchaseValue = input.nextDouble();
+
+    System.out.println("Insertar tu sexo (1. Mujer || 2. Hombre):");
+    int sex = input.nextInt();
+
+    System.out.println("Insertar tu nombre:");
+    String name = input.next();
+
+    System.out.println("Insertar tu edad:");
+    int age = input.nextInt();
+
+    String nameAux = name.toLowerCase();
+    if(sex == 1){
+        if(nameAux.equals("teresita") || nameAux.equals("tere") || nameAux.equals("teresa")){
+            if(age >= 16 && age <= 22) {
+                purchaseValue = purchaseValue * 0.93;
+            }else{
+                System.out.println("No se aplica descuento");    
+            }         
+        }else{
+            System.out.println("No se aplica descuento");
+        }
+    }else{
+        System.out.println("No se aplica descuento");
+    }
+
+    System.out.println("Monto a pagar: " + purchaseValue);
+
+******** EJERCICIO 7 ********
+
+    Scanner input = new Scanner(System.in);
+        
+    System.out.println("Inserta la cantidad kW:");
+    int kW = input.nextInt();
+
+    System.out.println("Tipo de contrado (1. Hogar | 2. Negocio)");
+    int type = input.nextInt();
+
+    double payment = 0.0;
+
+    switch(type){
+        case 1:
+            System.out.println("Hogar");
+            if(kW >= 0 && kW >= 250){
+                payment += 250 * 0.65;
+            }else if(kW >= 0 && kW <= 250){
+                payment = (250 - kW) * 0.65;
+            }
+
+            if(kW >= 251 && kW >= 500){
+                payment += (500 - 250) * 0.85;
+            }else if(kW >= 251 && kW <= 500){
+                payment += (kW - 250) * 0.85;
+            }
+
+            if(kW >= 501 && kW >= 1200){
+                payment += (1200 - 500) * 1.50;
+            }else if(kW >= 500 && kW <= 1200){
+                payment += (kW - 500) * 1.50;
+            }
+
+            if(kW >= 1201 && kW >= 2100){
+                payment += (2100 - 1200) * 2.50;
+            }else if(kW >= 1201 && kW <= 2100){
+                payment += (kW - 1200) * 2.50;
+            }
+
+            if(kW >= 2101){
+                payment += (kW - 2100) * 3.00;
+            }
+                
+            break;
+            
+        case 2:
+            System.out.println("Negocio");
+            payment = kW * 5;
+            break;
+
+        default: break;
+        }
+
+        System.out.println("Pago: $" + payment);
+
+******** EJERCICIO 8 ********
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Número 1:");
+    int num1 = input.nextInt();
+
+    System.out.println("Número 2:");
+    int num2 = input.nextInt();
+
+    if(num1%num2 == 0) {
+        System.out.println(num1 + " es múltiplo de " + num2);
+    }else{
+        System.out.println(num1 + " no es múltiplo de " + num2);
+    }
+
+******** EJERCICIO 9 ********
+
+    Scanner input = new Scanner(System.in);
+
+    int year;
+    String romanYear = "";
+
+    System.out.println("Inserta un año (1 a 3000):");
+    do{
+        year = input.nextInt();
+    }while(year < 1 || year > 3000);
+
+    while(year != 0){
+        if(year >= 1000){
+            romanYear += "M";
+            year -= 1000;
+        }else{
+            if(year >= 900){
+                romanYear += "CM";
+                year -= 900; 
+            }else if(year >= 800){
+                romanYear += "DCCC";
+                year -= 800;
+            }else if(year >= 700){
+                romanYear += "DCC";
+                year -= 700;
+            }else if(year >= 600){
+                romanYear += "DC";
+                year -= 600;
+            }else if(year >= 500){
+                romanYear += "D";
+                year -= 500;
+            }else if(year >= 400){
+                romanYear += "CD";
+                year -= 400;
+            }else if(year >= 300){
+                romanYear += "CCC";
+                year -= 300;
+            }else if(year >= 200){
+                romanYear += "CC";
+                year -= 200;
+            }else if(year >= 100){
+                romanYear += "C";
+                year -= 100;
+            }else{
+                if(year >= 90){
+                    romanYear += "XC";
+                    year -= 90;
+                }else if(year >= 80){
+                    romanYear += "LXXX";
+                    year -= 80;
+                }else if(year >= 70){
+                    romanYear += "LXX";
+                    year -= 70;
+                }else if(year >= 60){
+                    romanYear += "LX";
+                    year -= 60;
+                }else if(year >= 50){
+                    romanYear += "L";
+                    year -= 50;
+                }else if(year >= 40){
+                    romanYear += "XL";
+                    year -= 40;
+                }else if(year >= 30){
+                    romanYear += "XXX";
+                    year -= 30;
+                }else if(year >= 20){
+                    romanYear += "XX";
+                    year -= 20;
+                }else if(year >= 10){
+                    romanYear += "X";
+                    year -= 10;
+                }else{
+                    if(year == 9){
+                        romanYear += "IX";
+                        year -= 9;
+                    }else if(year == 8){
+                        romanYear += "VIII";
+                        year -= 8;
+                    }else if(year == 7){
+                        romanYear += "VII";
+                        year -= 7;
+                    }else if(year == 6){
+                        romanYear += "VI";
+                        year -= 6;
+                    }else if(year == 5){
+                        romanYear += "V";
+                        year -= 5;
+                    }else if(year == 4){
+                        romanYear += "IV";
+                        year -= 4;
+                    }else if(year == 3){
+                        romanYear += "III";
+                        year -= 3;
+                    }else if(year == 2){
+                        romanYear += "II";
+                        year -= 2;
+                    }else{
+                        romanYear += "I";
+                        year -= 1;
+                    }
+                }                
+            }
+        }
+    }
+
+    System.out.println("Año romano: " + romanYear);
+
+******** EJERCICIO 10 ********
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Inserta un número:");
+    int number = input.nextInt();
+
+    int factorial = 0;
+    System.out.printf(number + " x ");
+    for(int i = number - 1; i > 0; i--){
+        number *= i;
+        System.out.printf(i + " ");
+        if(i != 1)
+            System.out.printf("x ");
+    }
+
+    System.out.printf("\n");
+    factorial = number;
+    System.out.println("Factorial: " + factorial);
+
+******** EJERCICIO 11 ********
+
+int number = 0, sumDigits = 0, digit = 0;
+    String sNumber = "";
+    String sDigits = "";
+    String[] arrayDigits;
+
+    for(number = 0; number <= 5000; number++){
+        sNumber = String.valueOf(number);
+        arrayDigits = sNumber.split("");
+        for(int i = 0; i < arrayDigits.length; i++){
+            digit = Integer.parseInt(arrayDigits[i]);
+            sumDigits += (int)Math.pow(digit, 3);
+            sDigits += arrayDigits[i] + "^3";
+            if(i != arrayDigits.length - 1)
+                sDigits += " + ";
+        }
+
+        if(sumDigits == number){
+            System.out.printf(number + " = ");
+            System.out.printf(sDigits);
+            System.out.printf("\n");
+        }
+
+        sDigits = "";
+        sumDigits = 0;
+    }
+
+******** EJERCICIO 12 ********
+
+    Scanner input = new Scanner(System.in);
+
+    double balance, utility;
+    System.out.println("Indique la cantidad en dólares con la que comienza la inversión");
+    balance = input.nextInt();
+
+    for(int i = 1; i <= 20; i++){
+        if(i <= 10)
+            balance += 500;
+
+        utility = balance * 0.05;
+        balance += utility;
+    }
+
+    System.out.format("Dinero después de 20 años: %.2f\n", balance);
+
+******** EJERCICIO 13 ********
+
+    Scanner input = new Scanner(System.in);
+        
+    System.out.println("Cadena: ");
+    String string = input.next();
+
+    for(int i = string.length() - 1; i >= 0; i--){
+        System.out.printf(string.charAt(i) + "");
+    }
+    System.out.printf("\n");
+
+******** EJERCICIO 14 ********
+
+    Scanner input = new Scanner(System.in);
+
+    System.out.println("Escribe un número:");
+    int number = input.nextInt();
+
+    System.out.printf(number + ", ");
+    while(number < 150){
+        number += 5;
+        if(number > 150)
+            break;
+        else
+            System.out.printf(number + ", ");
+    }
+    System.out.printf("\n");
+
+******** EJERCICIO 15 ********
+
+    Scanner input = new Scanner(System.in);
+
+    int random_num = (int)Math.floor(Math.random()*(100-1+1)+1);
+    int guess;
+
+    do{
+        System.out.println("Adivina el número:");
+        guess = input.nextInt();
+        if(guess < random_num)
+            System.out.println("Tu número es menor");
+        else
+            System.out.println("Tu número es mayor:");
+    }while(guess != random_num && guess != 0);
+        
+    if(guess != 0)
+        System.out.println("ADIVINASTE!!!");
+
+******** EJERCICIO 16 ********
+
+    Scanner input = new Scanner(System.in);
+
+    String numbers;
+    int number;
+    int opt;
+    double result;
+
+    numbers = "";
+    number = 0;
+    result = 0.0;
+
+    while(true){
+        System.out.println("0. Insertar número | 1. Salir");
+        opt = input.nextInt();
+        if(opt == 1)
+            break;
+
+        do{
+            System.out.println("Número ( != 0 ):");
+            number = input.nextInt();
+        }while(number == 0);
+
+        result += Math.pow(number, 2);
+        numbers += number + "^2 + ";
+    }
+
+    System.out.println(numbers + " = " + result);
+
+******** EJERCICIO 17 ********
+
+    Scanner input = new Scanner(System.in);
+
+    int array[] = new int[10];
+
+    for(int i = 0; i < 10; i++) {
+        System.out.println("Inserta un número entero: ");
+        array[i] = input.nextInt();
+    }
+
+    for(int i = 0; i < 10; i++) {
+        System.out.printf("[" + array[i] + "] ");
+    }
+    
+    System.out.printf("\n");
+
+******** EJERCICIO 18 ********
+
+    Scanner input = new Scanner(System.in);
+
+    int array1[] = new int[10];
+    int array2[] = new int[10];
+    int result[] = new int[20];
+
+    for(int i = 0; i < 20; i++) {
+        if(i < 10) {
+            System.out.println("Inserta elemento para el arreglo 1: ");
+            array1[i] = input.nextInt();
+        }else{
+            System.out.println("Inserta elemento para el arreglo 2: ");
+            array2[i-10] = input.nextInt();
+        }
+    }
+        
+    for(int i = 0; i < 10; i ++) {
+        result[i*2] = array1[i];
+        result[(i*2)+1] = array2[i];
+    }
+
+    for(int i = 0; i < 20; i++){
+        System.out.printf("[" + result[i] + "] ");
+    }
+    
+    System.out.printf("\n");
+
+******** EJERCICIO 19 ********
+
+    Scanner input = new Scanner(System.in);
+
+    int array[] = new int[10];
+
+    for(int i = 0; i < 10; i++){
+        System.out.println("Inserta un número:");
+        array[i] = input.nextInt();
+    }
+
+    int aux1, aux2;
+    aux1 = array[0];
+    aux2 = 0;
+
+    for(int i = 0; i < 10; i++){
+        if(i < 9){
+            if(i%2 == 0) {
+                aux2 = array[i+1];
+                array[i+1] = aux1;
+            }else{
+                aux1 = array[i+1];
+                array[i+1] = aux2;
+            }
+        }else{
+            array[0] = aux2;
+            array[i] = aux1;
+        }
+    }
+
+    for(int i = 0; i < 10; i++){
+        System.out.printf("["+ array[i] + "] ");
+    }
+    
+    System.out.printf("\n");
+
+******** EJERCICIO 20 ********
+
+    int array[] = new int[10];
+    int max;
+    int min;
+
+    for(int i = 0; i < 10; i++){
+        array[i] = (int)(Math.random() * 10) + 1;
+    }
+
+    max = array[0];
+    min = array[0];
+
+    for(int i = 0; i < 10; i++) {
+        if(array[i] > max) {
+            max = array[i];
+        }else if(array[i] < min){
+            min = array[i];
+        }
+
+        System.out.printf("[" + array[i] + "]");
+    }
+    
+    System.out.printf("\n");
+    System.out.println("MAX: " + max);
+    System.out.println("MIN: " + min);
+
+******** EJERCICIO 21 ********
+
+    Scanner input = new Scanner(System.in);
+    int matrix[][] = new int[5][5];
+
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++) {
+            System.out.println("Inserte el elemento [" + i + "][" + j + "]");
+            matrix[i][j] = input.nextInt();
+        }
+    }
+
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++) {
+            System.out.printf("[" + matrix[i][j] + "]");
+        }
+
+        System.out.printf("\n");
+    }
+
+    int mainDiagonal = 0;
+    for(int i = 0; i < 5; i++){
+        mainDiagonal += matrix[i][i];
+    }
+
+    System.out.println("Diagonal: " + mainDiagonal);
+
+******** EJERCICIO 22 ********
+
+    Scanner input = new Scanner(System.in);
+    int matrixA[][];
+    int matrixB[][];
+    int matrixC[][];
+
+    int iA, jA, jB;
+    System.out.println("Filas de matrix A: ");
+    iA = input.nextInt();
+
+    System.out.println("Columas de matriz A y filas de matriz B: ");
+    jA = input.nextInt();
+    matrixA = new int[iA][jA];
+
+    System.out.println("Columnas de matriz B: ");
+    jB = input.nextInt();
+    matrixB = new int[jA][jB];
+
+    matrixC = new int[iA][jB];
+
+    for(int i = 0; i < iA; i++){
+        for(int j = 0; j < jA; j++){
+            System.out.println("Matriz A: [" + i + "][" + j + "]");
+            matrixA[i][j] = input.nextInt();
+        }
+    }
+
+    for(int i = 0; i < jA; i++){
+        for(int j = 0; j < jB; j++){
+            System.out.println("Matriz B: [" + i + "][" + j + "]");
+            matrixB[i][j] = input.nextInt();
+        }
+    }
+
+    System.out.printf("\n");
+    System.out.println("-------Matriz A-------");
+    System.out.printf("\n");
+
+    for(int i = 0; i < iA; i++){
+        for(int j = 0; j < jA; j++) {
+            System.out.printf("[" + matrixA[i][j] + "]");
+        }
+        System.out.printf("\n");
+    }
+
+    System.out.printf("\n");
+    System.out.println("-------Matriz B-------");
+    System.out.printf("\n");
+
+    for(int i = 0; i < jA; i++){
+        for(int j = 0; j < jB; j++) {
+            System.out.printf("[" + matrixB[i][j] + "]");
+        }
+        System.out.printf("\n");
+    }
+
+    System.out.printf("\n");
+    System.out.println("-------Multiplicación de A y B-------");
+    System.out.printf("\n");
+
+    for(int i = 0; i < iA; i++){
+        for(int j = 0; j < jB; j++){
+            for(int k = 0; k < jA; k++){
+                matrixC[i][j] += matrixA[i][k] * matrixB[k][j];    
+            }
+        }
+    }
+
+    for(int i = 0; i < iA; i++){
+        for(int j = 0; j < jB; j++) {
+            System.out.printf("[" + matrixC[i][j] + "]");
+        }
+        System.out.printf("\n");
+    }
+
+******** EJERCICIO 23 ********
+    String fileName = "programa23Data.txt";
+
+    Scanner input = new Scanner(System.in);
+    File file = new File(fileName);
+    ArrayList<String> registers = new ArrayList<String>();
+
+    int age, height;
+    age = -1;
+    height = -1;
+
+    try{
+        if(file.createNewFile()){
+            System.out.println("Archivo creado");
+        }else{
+            System.out.println("El archivo ya existe");
+        }
+
+        FileWriter fileWriter = new FileWriter(fileName, true);
+
+        while(age != 0){
+            System.out.println("Introduce tu edad");
+            age = input.nextInt();
+
+            if(age == 0)
+                break;
+
+            System.out.println("Introduce tu altura en cm");
+            height = input.nextInt();
+
+            registers.add("EDAD: " + age + ", ALTURA: " + height + "\n");
+        }
+
+        for(String register: registers) {
+            fileWriter.write(register);
+        }
+
+        fileWriter.close();
+
+    }catch(IOException e){
+        System.out.println("Ocurrió un error");
+        e.printStackTrace();
+    }
+
+******** EJERCICIO 24 ********
+
+    String fileName = "programa24Data.txt";
+    int max, lineCounter, lineSaver;
+    max = 0;
+    lineCounter = 1;
+    lineSaver = 1;
+
+    try{
+        File file = new File(fileName);
+        Scanner reader = new Scanner(file);
+
+        while(reader.hasNextLine()){
+            int number = reader.nextInt();
+            lineCounter++;
+
+            if(number > max){
+                max = number;
+                lineSaver = lineCounter - 1;
+            }      
+        }
+
+        System.out.println("Max: " + max);
+        System.out.println("Linea: " + lineSaver);
+
+        reader.close();
+    }catch(FileNotFoundException e){
+        System.out.println("Ocurrió un error");
+        e.printStackTrace();
+    }
